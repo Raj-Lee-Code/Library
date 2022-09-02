@@ -4,11 +4,6 @@ let bookCollection = [];
 const modal = document.querySelector("#modal");
 const openModal = document.querySelector(".open-button");
 const closeModal = document.querySelector(".submitButton");
-const bookTitle = document.getElementById("bookTitle").innerText
-const bookAuthor = document.getElementById("author").innerText
-const bookPages = document.getElementById("pages").innerText
-
-
 
 function Book(title, author, pages){
   this.title = title
@@ -17,6 +12,11 @@ function Book(title, author, pages){
 };
 
 function addBook(bookTitle, bookAuthor, bookPages){
+  div = document.createElement('div');
+div.id = 'container';
+div.innerHTML = 'Hi there!';
+div.className = 'border pad';
+document.body.appendChild(div);
   const newBook = new Book(bookTitle,bookAuthor,bookPages)
   bookCollection.push(newBook)
 }
@@ -26,8 +26,15 @@ openModal.addEventListener("click", () => {
 });
 
 closeModal.addEventListener("click", () => {
-  addBook(bookTitle,bookAuthor,bookPages)
-  modal.close();
+
+
+const bookTitle = document.getElementById("bookTitle").textContent
+console.log(bookTitle)
+const bookAuthor = document.getElementById("author").innerText
+const bookPages = document.getElementById("pages").innerText
+addBook(bookTitle,bookAuthor,bookPages)
+console.log(bookCollection)
+modal.close();
 });
 
 
